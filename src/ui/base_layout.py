@@ -44,7 +44,7 @@ def style_background_dashboard():
 
 
 def style_base_layout():
-
+#asdasd
 
     st.markdown("""
 
@@ -61,15 +61,6 @@ def style_base_layout():
                 padding-top:1.2rem !important; 
                 padding-bottom:0rem !important;
             } 
-            .stApp{
-                height:100vh !important;
-                overflow:hidden !important;
-            }
-
-            [data-testid="stAppViewContainer"],[data-testid="stMain"], .main{
-                overflow: hidden !important;
-                height: 100vh !important;
-            }
 
             h1{
                 font-family: 'Climate Crisis', sans-serif !important;
@@ -80,12 +71,21 @@ def style_base_layout():
                 letter-spacing: 0.02rem !important;
                 text-align: center !important;
             }
+            h1.dash-title{
+                font-size: 1.6rem !important;
+                line-height: 0.95 !important;
+                text-align: left !important;
+                color: #5865F2 !important;
+                margin: 0 !important;
+                white-space: nowrap !important;
+}
             h2{
                 font-family: 'Climate Crisis', sans-serif !important;
                 font-size: 2rem !important;
                 line-height: 0.9 !important;
                 margin-bottom:0rem !important;
             }
+            
             h3, h4, p{
                 font-family: 'Outfit', sans-serif;
             }
@@ -98,7 +98,7 @@ def style_base_layout():
                 overflow:hidden !important;
                 transition: transform 0.25s ease-in-out !important;
             }
-            button[kind="Secondary"]{
+            button[kind="secondary"]{
                 border-radius: 999px !important;
                 background: #EB459E !important;
                 color: white !important;
@@ -107,6 +107,7 @@ def style_base_layout():
                 overflow:hidden !important;
                 transition: transform 0.25s ease-in-out !important;
             }
+            
             button[kind="tertiary"]{
                 border-radius: 999px !important;
                 background: black !important;
