@@ -8,14 +8,14 @@ import streamlit as st
 @st.cache_resource
 
 def load_voice_encoder():
-    return VoiceEncoder
+    return VoiceEncoder()
 
 
 def get_voice_embedding(audio_bytes):
     try:
         encoder=load_voice_encoder()
 
-        audio, sr= librosa.load(io.BytesIo(audio_bytes), sr=16000)
+        audio, sr= librosa.load(io.BytesIO(audio_bytes), sr=16000)
         wav=preprocess_wav(audio)
         embedding=encoder.embed_utterance(wav)
         return embedding.tolist()
@@ -35,9 +35,9 @@ def identify_speaker(new_embedding, candidates_dict, threshold=0.65):
     for sid, stored_embedding in candidates_dict.items():
         if stored_embedding:
             similarity=np.dot(new_embedding, stored_embedding)
-        if similarity > best_score:
-            best_score=similarity
-            best_sid=sid
+            if similarity > best_score:
+                best_score=similarity
+                best_sid=sid
 
     if best_score>=threshold:
         return best_sid, best_score
@@ -46,6 +46,7 @@ def identify_speaker(new_embedding, candidates_dict, threshold=0.65):
 
 
 def process_bulk_audio(audio_bytes, candidates_dict, threshold=0.65):
+
     try:
         encoder=load_voice_encoder()
 
@@ -67,7 +68,7 @@ def process_bulk_audio(audio_bytes, candidates_dict, threshold=0.65):
             sid, score=identify_speaker(embedding, candidates_dict, threshold)
 
             if sid:
-                if sid not in identify_speaker or score > identified_results[sid]:
+                if sid not in identified_results or score > identified_results[sid]:
                     identified_results[sid]=score
 
         return identified_results

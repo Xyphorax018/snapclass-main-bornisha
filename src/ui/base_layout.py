@@ -1,128 +1,180 @@
-#src/ui/base_layout.py
 import streamlit as st
+
 
 def style_background_home():
 
     st.markdown("""
+        <style>
 
-    <style>
-        .stApp{
-            background: #5865F2 !important;
-        }
+                .stApp {
+                    background: #5865F2 !important;
+                }
 
-        .stApp div[data-testid="stColumn"]{
-            background-color: #E0E3FF !important;
-            padding: 2rem 2.6rem !important;
-            border-radius: 5rem /5rem !important;
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: space-between !important;
-            min-height: 260px !important;
-        }
-        .stApp div[data-testid="stColumn"] img{
-            height: 90px !important;
-            width: auto !important;
-            object-fit: contain !important;
-            margin: 0 auto !important;
-        }
-    </style>
+                .stApp div[data-testid="stColumn"]{
+                    background-color:#E0E3FF !important;
+                    padding:2.5rem !important;
+                    border-radius: 5rem !important;
+                    }
+        </style>
 
-    """,unsafe_allow_html=True)
+                """,
+                unsafe_allow_html=True)
 
 
 def style_background_dashboard():
 
     st.markdown("""
+        <style>
 
-    <style>
-        .stApp{
-            background: #E0E3FF !important;
-        }
-    </style>
+                .stApp {
+                    background: #E0E3FF !important;
+                }
 
-    """,unsafe_allow_html=True)
+        </style>
+
+                """,
+                unsafe_allow_html=True)
 
 
 def style_base_layout():
-#asdasd
 
     st.markdown("""
+        <style>
 
-    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Climate+Crisis:YEAR@1979&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
-        @import url('https://fonts.googleapis.com/css2?family=Climate+Crisis:YEAR@2004&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');        
-        /*Hide Top Bar of streamlit*/
-            #MainMenu, footer, header{
-                visibility:hidden;
-            }
+        /* Hide Streamlit header */
 
-            .block-container{ 
-                padding-top:1.2rem !important; 
-                padding-bottom:0rem !important;
-            } 
+        #MainMenu, footer, header {
+            visibility: hidden;
+        }
 
-            h1{
-                font-family: 'Climate Crisis', sans-serif !important;
-                font-size: 2.8rem !important;
-                line-height: 1.1 !important;
-                margin-top: 0rem !important;
-                margin-bottom:0rem !important;
-                letter-spacing: 0.02rem !important;
-                text-align: center !important;
-            }
-            h1.dash-title{
-                font-size: 1.6rem !important;
-                line-height: 0.95 !important;
-                text-align: left !important;
-                color: #5865F2 !important;
-                margin: 0 !important;
-                white-space: nowrap !important;
-}
-            h2{
-                font-family: 'Climate Crisis', sans-serif !important;
-                font-size: 2rem !important;
-                line-height: 0.9 !important;
-                margin-bottom:0rem !important;
-            }
-            
-            h3, h4, p{
-                font-family: 'Outfit', sans-serif;
-            }
-            button{
-                border-radius: 999px !important;
-                background: #5865F2 !important;
-                color: white !important;
-                padding: 10px 24px !important;
-                border: None !important;
-                overflow:hidden !important;
-                transition: transform 0.25s ease-in-out !important;
-            }
-            button[kind="secondary"]{
-                border-radius: 999px !important;
-                background: #EB459E !important;
-                color: white !important;
-                padding: 10px 24px !important;
-                border: None !important;
-                overflow:hidden !important;
-                transition: transform 0.25s ease-in-out !important;
-            }
-            
-            button[kind="tertiary"]{
-                border-radius: 999px !important;
-                background: black !important;
-                color: white !important;
-                padding: 10px 24px !important;
-                border: None !important;
-                overflow:hidden !important;
-                transition: transform 0.25s ease-in-out !important;
-            }
-            button:hover{
-                transform:scale(1.05)
-            }
+        .block-container {
+            padding-top:1.5rem !important;
+        }
 
-    </style>
+        h1 {
+            font-family: 'Climate Crisis', sans-serif !important;
+            font-size: 3.5rem !important;
+            line-height:1.1 !important;
+            margin-bottom:0rem !important;
+        }
 
-    """,unsafe_allow_html=True)
+        h2 {
+            font-family: 'Climate Crisis', sans-serif !important;
+            font-size: 2rem !important;
+            line-height:0.9 !important;
+            margin-bottom:0rem !important;
+            color: black !important;
+        }
+
+        h3 {
+            font-family: 'Outfit', sans-serif !important;
+            color: black !important;
+        }
+
+        h4, p {
+            font-family: 'Outfit', sans-serif !important;
+        }
+
+        /* ---------- Text Input Label ---------- */
+
+        .stTextInput label {
+            color: black !important;
+        }
+
+        .stTextInput p {
+            color: black !important;
+        }
+
+        /* ---------- Select Box Label ---------- */
+
+        .stSelectbox label {
+            color: black !important;
+        }
+
+        .stSelectbox p {
+            color: black !important;
+        }
+
+        /* Fallback for newer Streamlit versions */
+
+        div[data-testid="stWidgetLabel"] p {
+            color: black !important;
+        }
+
+        button{
+            border-radius: 1.5rem !important;
+            background-color: #5865F2 !important;
+            color: white !important;
+            padding: 10px 20px !important;
+            border: none !important;
+            transition: transform 0.25s ease-in-out !important;
+        }
+
+        button[kind="secondary"]{
+            border-radius: 1.5rem !important;
+            background-color: #EB459E !important;
+            color: white !important;
+            padding: 10px 20px !important;
+            border: none !important;
+            transition: transform 0.25s ease-in-out !important;
+        }
+
+        button[kind="tertiary"]{
+            border-radius: 1.5rem !important;
+            background-color: black !important;
+            color: white !important;
+            padding: 10px 20px !important;
+            border: none !important;
+            transition: transform 0.25s ease-in-out !important;
+        }
+
+        button:hover{
+            transform: scale(1.05);
+        }
 
 
+        /* =====================================================
+           SHARE CLASS LINK DIALOG
+           ===================================================== */
+
+        div[data-testid="stDialog"] > div {
+            background-color: #F5F6FF !important;
+        }
+
+        div[data-testid="stDialog"] h1 {
+            color: black !important;
+        }
+
+        div[data-testid="stDialog"] h2 {
+            color: #5865F2 !important;
+        }
+
+        div[data-testid="stDialog"] h3 {
+            color: black !important;
+        }
+
+        div[data-testid="stDialog"] p {
+            color: black !important;
+        }
+
+        div[data-testid="stDialog"] pre {
+            background-color: #E8EAFF !important;
+        }
+
+        div[data-testid="stDialog"] code {
+            color: black !important;
+        }
+
+        div[data-testid="stDialog"] div[data-testid="stAlert"] {
+            background-color: #E1E7FF !important;
+        }
+
+        div[data-testid="stDialog"] div[data-testid="stAlert"] p {
+            color: #3652B3 !important;
+        }
+
+        </style>
+    """, unsafe_allow_html=True)

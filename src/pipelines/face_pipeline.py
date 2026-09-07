@@ -12,17 +12,17 @@ def load_dlib_models():
     detector=dlib.get_frontal_face_detector()
 
     sp=dlib.shape_predictor(
-        face_recognition_models.pose_predictor_model_location
+        face_recognition_models.pose_predictor_model_location()
     )
 
 
     face_rec=dlib.face_recognition_model_v1(
-        face_recognition_models.face_recognition_model_location
+        face_recognition_models.face_recognition_model_location()
     )
     return detector, sp, face_rec
 
 def get_face_embeddings(image_np):
-    detector, sp, facerec=load_dlib_models()
+    detector, sp, face_rec=load_dlib_models()
     faces=detector(image_np,1)
 
     encodings=[]
@@ -53,7 +53,7 @@ def get_trained_model():
     if len(x) == 0:
         return 0
 
-    clf = SVC(kernel='linear', probability='True', class_weight='balanced')
+    clf = SVC(kernel='linear', probability=True, class_weight='balanced')
     try:
         clf.fit(x,y)
     except ValueError:
@@ -68,11 +68,11 @@ def train_classifier():
     return bool(model_data)
 
 
-def predict_attendence(class_image_np):
+def predict_attendance(class_image_np):
     encodings=get_face_embeddings(class_image_np)
     detected_student={}
 
-    model_data=get_trained_model
+    model_data=get_trained_model()
     if not model_data:
         return detected_student, [], len(encodings)
     
@@ -98,4 +98,4 @@ def predict_attendence(class_image_np):
         if best_match_score<=resemblance_threshold:
             detected_student[predicted_id]=True
 
-    return detected_student, all_students, len(encoding)
+    return detected_student, all_students, len(encodings)
