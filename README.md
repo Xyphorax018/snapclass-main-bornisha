@@ -123,3 +123,7 @@ There are several areas where I would like to improve SnapClass in the future:
 
 BCA Student | Developer in Progress
 
+
+© 2026 Bornisha Saha. All rights reserved.
+
+This project is created for educational and portfolio purposes. Unauthorized copying, redistribution, or commercial use of this code is not permitted without the author's permission.
